@@ -10,6 +10,11 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+app.use(cors({
+  origin: '*', // later we lock this down
+  methods: ['GET']
+}));
+
 // Routes
 app.get('/', (req, res) => {
   res.send('<h1>Success!</h1><p>Your backend is live and ready!</p>');
